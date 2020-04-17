@@ -14,7 +14,7 @@
 # Rendering utils for tf-graphics.
 
 # google internal package dependency 8)
-# google internal package dependency 5
+load("//vr/perception/tensorflow/tools:multi_mode.bzl", "py_multi_mode_and_device_test")
 
 licenses(["notice"])  # Apache 2.0
 

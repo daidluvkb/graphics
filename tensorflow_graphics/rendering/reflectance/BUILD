@@ -14,7 +14,7 @@
 # Reflectance functionalities for tf-graphics.
 
 # google internal package dependency 8)
-# google internal package dependency 5
+load("//vr/perception/tensorflow/tools:multi_mode.bzl", "py_multi_mode_and_device_test")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -76,16 +76,18 @@ py_library(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "blinn_phong_test",
     srcs = ["tests/blinn_phong_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":blinn_phong",
         # google internal package dependency 3
@@ -96,16 +98,18 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "lambertian_test",
     srcs = ["tests/lambertian_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":lambertian",
         # google internal package dependency 3
@@ -116,16 +120,18 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "phong_test",
     srcs = ["tests/phong_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":phong",
         # google internal package dependency 3

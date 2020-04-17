@@ -16,7 +16,7 @@
 # google internal package dependency 8)
 load("//third_party/tensorflow:tensorflow.bzl", "tf_custom_op_library", "tf_gen_op_wrapper_py")
 load("//third_party/tensorflow:tensorflow.google.bzl", "tf_custom_op_py_library")
-# google internal package dependency 5
+load("//vr/perception/tensorflow/tools:multi_mode.bzl", "py_multi_mode_and_device_test")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -226,17 +226,20 @@ py_library(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "math_test",
     timeout = "long",
     srcs = ["tests/math_test.py"],
+    shard_count = 32,
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":math",
         # google internal package dependency 2
@@ -337,21 +340,22 @@ tf_custom_op_py_library(
     deps = [":gen_rasterizer_op"],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "rasterizer_op_test",
     srcs = [
         "tests/rasterizer_op_test.py",
     ],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     tags = [
         "nomsan",  # Un-initialized values in libEGL.
     ],
     test_on_cpu = False,
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
     deps = [
         ":gl_native_libs",
         ":math",
