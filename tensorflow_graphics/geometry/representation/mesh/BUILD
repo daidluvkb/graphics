@@ -14,7 +14,7 @@
 # Mesh functionalities for tf-graphics.
 
 # google internal package dependency 8)
-# google internal package dependency 5
+load("//vr/perception/tensorflow/tools:multi_mode.bzl", "py_multi_mode_and_device_test")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -58,16 +58,18 @@ py_library(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "normals_test",
     srcs = ["tests/normals_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":normals",
         # google internal package dependency 2
@@ -78,16 +80,18 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "utils_test",
     srcs = ["tests/utils_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":utils",
         # google internal package dependency 2

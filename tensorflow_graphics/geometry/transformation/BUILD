@@ -14,7 +14,7 @@
 # Geometric transformation functionalities for tf-graphics.
 
 # google internal package dependency 8)
-# google internal package dependency 5
+load("//vr/perception/tensorflow/tools:multi_mode.bzl", "py_multi_mode_and_device_test")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -178,17 +178,19 @@ py_library(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "quaternion_test",
     timeout = "long",
     srcs = ["tests/quaternion_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":axis_angle",
         ":quaternion",
@@ -203,17 +205,19 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "dual_quaternion_test",
     timeout = "long",
     srcs = ["tests/dual_quaternion_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":dual_quaternion",
         ":quaternion",
@@ -225,16 +229,18 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "axis_angle_test",
     srcs = ["tests/axis_angle_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":axis_angle",
         ":quaternion",
@@ -248,16 +254,18 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "rotation_matrix_common_test",
     srcs = ["tests/rotation_matrix_common_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":rotation_matrix_common",
         # google internal package dependency 2
@@ -266,18 +274,20 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "rotation_matrix_3d_test",
     timeout = "long",
     srcs = ["tests/rotation_matrix_3d_test.py"],
     shard_count = 3,
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":axis_angle",
         ":quaternion",
@@ -292,16 +302,18 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "rotation_matrix_2d_test",
     srcs = ["tests/rotation_matrix_2d_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":rotation_matrix_2d",
         ":test_data",
@@ -314,16 +326,18 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "linear_blend_skinning_test",
     srcs = ["tests/linear_blend_skinning_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":linear_blend_skinning",
         ":test_helpers",
@@ -335,17 +349,19 @@ py_test(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "euler_test",
     srcs = ["tests/euler_test.py"],
     shard_count = 16,
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":axis_angle",
         ":euler",

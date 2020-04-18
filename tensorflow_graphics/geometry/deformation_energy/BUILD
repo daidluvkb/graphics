@@ -14,7 +14,7 @@
 # Fitting energies for tf-graphics.
 
 # google internal package dependency 8)
-# google internal package dependency 5
+load("//vr/perception/tensorflow/tools:multi_mode.bzl", "py_multi_mode_and_device_test")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -45,16 +45,18 @@ py_library(
     ],
 )
 
-py_test(
+py_multi_mode_and_device_test(
     name = "as_conformal_as_possible_test",
     srcs = ["tests/as_conformal_as_possible_test.py"],
     srcs_version = "PY2AND3",
-    # google internal rule 1
     # google internal rule 2
     # google internal rule 3
     # google internal rule 4
-    # google internal rule 5
-    # google internal rule 6
+    tf1_eager = True,
+    tf1_graph = True,
+    tf2_eager = True,
+    tf2_graph = True,
+    type_checking = False,
     deps = [
         ":as_conformal_as_possible",
         # google internal package dependency 3
